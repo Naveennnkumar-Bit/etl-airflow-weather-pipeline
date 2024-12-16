@@ -1,48 +1,82 @@
-Overview
-========
+# Exploring Apache Airflow & Astro for ETL Pipelines
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+This project showcases how to build and manage an ETL (Extract, Transform, Load) pipeline using **Apache Airflow** and **Astro**. The pipeline fetches weather data from an API, processes it, and loads it into a PostgreSQL database for further analysis.
 
-Project Contents
-================
+## Overview
 
-Your Astro project contains the following files and folders:
+### Tools Used:
+- **Apache Airflow**: An open-source platform for orchestrating workflows.
+- **Astro (Astronomer)**: Simplifies managing Airflow deployments.
+- **PostgreSQL**: Target database for storing processed data.
+- **Docker**: Containerization for seamless deployment.
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://www.astronomer.io/docs/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+### Key Features:
+- **ETL Pipeline**: Built using Airflow DAGs to extract, transform, and load data.
+- **Daily Automation**: The pipeline runs daily to ensure the database is always up-to-date.
+- **Dockerized Deployment**: The entire project is containerized and available on Docker Hub.
 
-Deploy Your Project Locally
-===========================
+## Project Workflow
 
-1. Start Airflow on your local machine by running 'astro dev start'.
+1. **Extract**:
+   - Fetch weather data from a public API.
+2. **Transform**:
+   - Clean and preprocess the data into a structured format.
+3. **Load**:
+   - Store the transformed data in a PostgreSQL database.
 
-This command will spin up 4 Docker containers on your machine, each for a different Airflow component:
+The workflow is managed using **Directed Acyclic Graphs (DAGs)** in Airflow, enabling task orchestration and monitoring.
 
-- Postgres: Airflow's Metadata Database
-- Webserver: The Airflow component responsible for rendering the Airflow UI
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+## Getting Started
 
-2. Verify that all 4 Docker containers were created by running 'docker ps'.
+### Prerequisites
+- Docker and Docker Compose installed on your system.
+- PostgreSQL set up locally or via a Docker container.
 
-Note: Running 'astro dev start' will start your project with the Airflow Webserver exposed at port 8080 and Postgres exposed at port 5432. If you already have either of those ports allocated, you can either [stop your existing Docker containers or change the port](https://www.astronomer.io/docs/astro/cli/troubleshoot-locally#ports-are-not-available-for-my-local-airflow-webserver).
+### Clone the Repository
+```bash
+git clone <repository-url>
+cd <repository-folder>
+```
 
-3. Access the Airflow UI for your local Airflow project. To do so, go to http://localhost:8080/ and log in with 'admin' for both your Username and Password.
+### Running Locally with Docker
 
-You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
+1. **Build and Start the Project**:
+   ```bash
+   docker-compose up --build
+   ```
 
-Deploy Your Project to Astronomer
-=================================
+2. **Access Airflow**:
+   - Webserver: [http://localhost:8080](http://localhost:8080)
+   - Default credentials:
+     - Username: `admin`
+     - Password: `admin`
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
+3. **Run the Pipeline**:
+   - Trigger the DAG manually from the Airflow UI or let it run on the scheduled interval.
 
-Contact
-=======
+### Docker Hub Image
+Pull the pre-built Docker image directly from Docker Hub:
+```bash
+docker pull <your-dockerhub-username>/<your-image-name>
+```
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+## Learning Outcomes
+
+- Simplified scheduling and monitoring of workflows with Astro.
+- Hands-on experience with building ETL pipelines using Airflow.
+- Leveraging Docker to containerize and share data engineering projects.
+
+## Next Steps
+
+- Explore advanced Airflow features such as error handling and dynamic pipelines.
+- Apply these concepts to larger-scale, real-world data engineering problems.
+
+## Contributing
+Feel free to fork this repository, open issues, and submit pull requests for improvements or new features.
+
+## Acknowledgments
+- **Krish Naik**: For the tutorial that inspired this project.
+
+## Connect
+- **Docker Hub**: [Link to Docker Hub Image](https://hub.docker.com/repository/docker/naveenkumar16/etl_airflow/general)
+- **LinkedIn**: [Your LinkedIn Profile](linkedin.com/in/naveennnkumar)
