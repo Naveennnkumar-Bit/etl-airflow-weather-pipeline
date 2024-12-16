@@ -27,7 +27,7 @@ This project showcases how to build and manage an ETL (Extract, Transform, Load)
 The workflow is managed using **Directed Acyclic Graphs (DAGs)** in Airflow, enabling task orchestration and monitoring.
 
 ## Airflow UI Example
-![Airflow DAGs](images/airflow-ui.png)
+![Airflow DAGs](https://github.com/Naveennnkumar-Bit/etl-airflow-weather-pipeline/blob/main/AFL.png)
 
 
 ## Getting Started
