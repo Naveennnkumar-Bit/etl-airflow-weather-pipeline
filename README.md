@@ -57,7 +57,7 @@ cd <repository-folder>
 ### Docker Hub Image
 Pull the pre-built Docker image directly from Docker Hub:
 ```bash
-docker pull <your-dockerhub-username>/<your-image-name>
+docker pull naveenkumar16/etl_airflow
 ```
 
 ## Learning Outcomes
