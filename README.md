@@ -26,33 +26,15 @@ This project showcases how to build and manage an ETL (Extract, Transform, Load)
 
 The workflow is managed using **Directed Acyclic Graphs (DAGs)** in Airflow, enabling task orchestration and monitoring.
 
+## Airflow UI Example
+![Airflow DAGs](images/airflow-ui.png)
+
+
 ## Getting Started
 
 ### Prerequisites
 - Docker and Docker Compose installed on your system.
 - PostgreSQL set up locally or via a Docker container.
-
-### Clone the Repository
-```bash
-git clone <repository-url>
-cd <repository-folder>
-```
-
-### Running Locally with Docker
-
-1. **Build and Start the Project**:
-   ```bash
-   docker-compose up --build
-   ```
-
-2. **Access Airflow**:
-   - Webserver: [http://localhost:8080](http://localhost:8080)
-   - Default credentials:
-     - Username: `admin`
-     - Password: `admin`
-
-3. **Run the Pipeline**:
-   - Trigger the DAG manually from the Airflow UI or let it run on the scheduled interval.
 
 ### Docker Hub Image
 Pull the pre-built Docker image directly from Docker Hub:
