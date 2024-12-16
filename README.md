@@ -60,5 +60,6 @@ Feel free to fork this repository, open issues, and submit pull requests for imp
 - **Krish Naik**: For the tutorial that inspired this project.
 
 ## Connect
-- **Docker Hub**: (https://hub.docker.com/repository/docker/naveenkumar16/etl_airflow/general)
-- **LinkedIn**: (linkedin.com/in/naveennnkumar)
+- **Docker Hub**: Check out my [ETL with Airflow Docker repository](https://hub.docker.com/repository/docker/naveenkumar16/etl_airflow/general) for Docker images and configurations related to my ETL and Airflow projects.
+- **LinkedIn**: Feel free to [connect with me on LinkedIn](https://linkedin.com/in/naveennnkumar) for networking and discussions on data science, analytics, and technology.
+
